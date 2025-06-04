@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+    "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="userForm" type="com.alpacatours.form.UserForm"/>
+    <form-bean name="tourForm" type="com.alpacatours.form.TourForm"/>
+    <form-bean name="bookingForm" type="com.alpacatours.form.BookingForm"/>
+  </form-beans>
+  <action-mappings>
+    <action path="/login" type="com.alpacatours.action.UserAction" name="userForm" scope="request" validate="true">
+      <forward name="success" path="/tours.jsp"/>
+      <forward name="failure" path="/login.jsp"/>
+    </action>
+    <action path="/register" type="com.alpacatours.action.UserAction" name="userForm" scope="request" validate="true">
+      <forward name="success" path="/login.jsp"/>
+      <forward name="failure" path="/register.jsp"/>
+    </action>
+    <action path="/tours" type="com.alpacatours.action.TourAction" name="tourForm" scope="request"/>
+    <action path="/book" type="com.alpacatours.action.BookingAction" name="bookingForm" scope="request"/>
+  </action-mappings>
+</struts-config>
