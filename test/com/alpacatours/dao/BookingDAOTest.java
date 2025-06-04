@@ -1,3 +1,5 @@
+package com.alpacatours.dao;
+
 import com.alpacatours.dao.BookingDAO;
 import com.alpacatours.model.Booking;
 import org.junit.Test;

@@ -1,3 +1,5 @@
+package com.alpacatours.dao;
+
 import com.alpacatours.dao.UserDAO;
 import com.alpacatours.model.User;
 import org.junit.Test;
