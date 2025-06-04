@@ -1,6 +1,7 @@
 package com.alpacatours.dao;
 
 import com.alpacatours.dao.UserDAO;
+import com.alpacatours.dao.Database;
 import com.alpacatours.model.User;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -8,6 +9,7 @@ import static org.junit.Assert.*;
 public class UserDAOTest {
     @Test
     public void testSaveAndFindByUsername() {
+        Database.reset();
         UserDAO dao = new UserDAO();
         User user = new User();
         user.setUsername("alice");

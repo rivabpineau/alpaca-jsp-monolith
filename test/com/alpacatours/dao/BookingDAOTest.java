@@ -1,6 +1,7 @@
 package com.alpacatours.dao;
 
 import com.alpacatours.dao.BookingDAO;
+import com.alpacatours.dao.Database;
 import com.alpacatours.model.Booking;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -10,6 +11,7 @@ import java.sql.Date;
 public class BookingDAOTest {
     @Test
     public void testSaveAndFindAll() {
+        Database.reset();
         BookingDAO dao = new BookingDAO();
         Booking b = new Booking();
         b.setUserId(1);
