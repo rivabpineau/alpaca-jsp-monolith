@@ -10,7 +10,7 @@
     if (list != null) {
         for (com.alpacatours.model.Tour t : list) {
   %>
-    <li><%= t.getTitle() %> - guide <%= t.getGuideId() %></li>
+    <li><%= t.getTitle() %> - guide <%= t.getGuideName() %></li>
   <%
         }
     }

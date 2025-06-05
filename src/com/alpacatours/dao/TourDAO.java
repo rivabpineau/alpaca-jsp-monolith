@@ -36,7 +36,9 @@ public class TourDAO {
         List<Tour> list = new ArrayList<>();
         Connection conn = Database.getConnection();
         try (Statement st = conn.createStatement();
-             ResultSet rs = st.executeQuery("SELECT id,title,location,price,description,capacity,guideId FROM tours")) {
+             ResultSet rs = st.executeQuery(
+                "SELECT t.id,t.title,t.location,t.price,t.description,t.capacity,t.guideId,u.username AS guideName " +
+                "FROM tours t LEFT JOIN users u ON t.guideId=u.id")) {
             while (rs.next()) {
                 Tour t = new Tour();
                 t.setId(rs.getInt("id"));
@@ -46,6 +48,7 @@ public class TourDAO {
                 t.setDescription(rs.getString("description"));
                 t.setCapacity(rs.getInt("capacity"));
                 t.setGuideId(rs.getInt("guideId"));
+                t.setGuideName(rs.getString("guideName"));
                 list.add(t);
             }
         } catch (SQLException e) {
@@ -57,7 +60,8 @@ public class TourDAO {
     public Tour findById(int id) {
         Connection conn = Database.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(
-                "SELECT id,title,location,price,description,capacity,guideId FROM tours WHERE id=?")) {
+                "SELECT t.id,t.title,t.location,t.price,t.description,t.capacity,t.guideId,u.username AS guideName " +
+                "FROM tours t LEFT JOIN users u ON t.guideId=u.id WHERE t.id=?")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -69,6 +73,7 @@ public class TourDAO {
                     t.setDescription(rs.getString("description"));
                     t.setCapacity(rs.getInt("capacity"));
                     t.setGuideId(rs.getInt("guideId"));
+                    t.setGuideName(rs.getString("guideName"));
                     return t;
                 }
             }
