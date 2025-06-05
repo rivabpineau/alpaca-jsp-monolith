@@ -22,6 +22,7 @@ public class UserDAO {
                     user.setId(rs.getInt(1));
                 }
             }
+            System.out.println("saveUser");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -29,6 +30,7 @@ public class UserDAO {
 
     public User findByUsername(String username) {
         Connection conn = Database.getConnection();
+        System.out.println("findByUsername");
         try (PreparedStatement ps = conn.prepareStatement(
                 "SELECT id, username, password, role FROM users WHERE username = ?")) {
             ps.setString(1, username);
@@ -39,6 +41,7 @@ public class UserDAO {
                     u.setUsername(rs.getString("username"));
                     u.setPassword(rs.getString("password"));
                     u.setRole(rs.getString("role"));
+                    System.out.println("u.getUsername() = " + u.getUsername());
                     return u;
                 }
             }

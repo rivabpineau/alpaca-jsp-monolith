@@ -19,6 +19,7 @@ public class UserAction extends Action {
         UserForm userForm = (UserForm) form;
         String action = mapping.getPath();
         if ("/login".equals(action)) {
+            System.out.println("User-Login-Action");
             User user = userDAO.findByUsername(userForm.getUsername());
             if (user != null && user.getPassword().equals(userForm.getPassword())) {
                 request.getSession().setAttribute("user", user);
@@ -29,6 +30,8 @@ public class UserAction extends Action {
             User user = new User();
             user.setUsername(userForm.getUsername());
             user.setPassword(userForm.getPassword());
+            user.setRole("USER");
+            System.out.println("User-Register-Action");
             String role = userForm.getRole();
             if (role == null || role.isEmpty()) {
                 role = "CUST";

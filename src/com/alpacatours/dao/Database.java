@@ -13,6 +13,7 @@ public class Database {
             Class.forName("org.h2.Driver");
             connection = DriverManager.getConnection("jdbc:h2:mem:alpaca;DB_CLOSE_DELAY=-1");
             init();
+            System.out.println("Database initialized");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,6 +41,7 @@ public class Database {
                 "numPeople INT," +
                 "bookingDate DATE)");
         stmt.close();
+        System.out.println("Database tables initialized");
     }
 
     public static Connection getConnection() {
@@ -51,6 +53,8 @@ public class Database {
             stmt.executeUpdate("DELETE FROM bookings");
             stmt.executeUpdate("DELETE FROM tours");
             stmt.executeUpdate("DELETE FROM users");
+            System.out.println("Database reset");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
