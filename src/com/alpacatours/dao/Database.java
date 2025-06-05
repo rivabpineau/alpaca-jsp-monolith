@@ -31,7 +31,8 @@ public class Database {
                 "location VARCHAR(255)," +
                 "price DOUBLE," +
                 "description VARCHAR(255)," +
-                "capacity INT)");
+                "capacity INT," +
+                "guideId INT)");
         stmt.execute("CREATE TABLE IF NOT EXISTS bookings(" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
                 "userId INT," +

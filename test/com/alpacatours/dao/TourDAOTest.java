@@ -13,10 +13,12 @@ public class TourDAOTest {
         TourDAO dao = new TourDAO();
         Tour tour = new Tour();
         tour.setTitle("City Tour");
+        tour.setGuideId(1);
         dao.save(tour);
         assertEquals(1, dao.findAll().size());
         Tour found = dao.findById(tour.getId());
         assertNotNull(found);
         assertEquals("City Tour", found.getTitle());
+        assertEquals(1, found.getGuideId());
     }
 }

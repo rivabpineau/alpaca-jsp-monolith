@@ -20,7 +20,12 @@
     <action path="/users" type="com.alpacatours.action.UserAction" name="userForm" scope="request" validate="false">
       <forward name="success" path="/users.jsp"/>
     </action>
-    <action path="/tours" type="com.alpacatours.action.TourAction" name="tourForm" scope="request"/>
+    <action path="/tours" type="com.alpacatours.action.TourAction" name="tourForm" scope="request">
+      <forward name="success" path="/tours.jsp"/>
+    </action>
+    <action path="/addTour" type="com.alpacatours.action.TourAction" name="tourForm" scope="request">
+      <forward name="success" path="/tours.do" redirect="true"/>
+    </action>
     <action path="/book" type="com.alpacatours.action.BookingAction" name="bookingForm" scope="request"/>
   </action-mappings>
 </struts-config>

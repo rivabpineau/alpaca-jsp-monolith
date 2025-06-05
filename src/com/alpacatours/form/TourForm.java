@@ -8,6 +8,7 @@ public class TourForm extends ActionForm {
     private double price;
     private String description;
     private int capacity;
+    private int guideId;
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
@@ -23,4 +24,7 @@ public class TourForm extends ActionForm {
 
     public int getCapacity() { return capacity; }
     public void setCapacity(int capacity) { this.capacity = capacity; }
+
+    public int getGuideId() { return guideId; }
+    public void setGuideId(int guideId) { this.guideId = guideId; }
 }
