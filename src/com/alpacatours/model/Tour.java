@@ -8,6 +8,7 @@ public class Tour {
     private String description;
     private int capacity;
     private int guideId;
+    private String guideName;
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -29,4 +30,7 @@ public class Tour {
 
     public int getGuideId() { return guideId; }
     public void setGuideId(int guideId) { this.guideId = guideId; }
+
+    public String getGuideName() { return guideName; }
+    public void setGuideName(String guideName) { this.guideName = guideName; }
 }
