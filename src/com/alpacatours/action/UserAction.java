@@ -32,6 +32,10 @@ public class UserAction extends Action {
             user.setRole("USER");
             userDAO.save(user);
             return mapping.findForward("success");
+        } else if ("/users".equals(action)) {
+            java.util.List<User> list = userDAO.findAll();
+            request.setAttribute("users", list);
+            return mapping.findForward("success");
         }
         return mapping.getInputForward();
     }
