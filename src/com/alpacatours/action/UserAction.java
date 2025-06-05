@@ -29,7 +29,11 @@ public class UserAction extends Action {
             User user = new User();
             user.setUsername(userForm.getUsername());
             user.setPassword(userForm.getPassword());
-            user.setRole("USER");
+            String role = userForm.getRole();
+            if (role == null || role.isEmpty()) {
+                role = "CUST";
+            }
+            user.setRole(role);
             userDAO.save(user);
             return mapping.findForward("success");
         } else if ("/users".equals(action)) {

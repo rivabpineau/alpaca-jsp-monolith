@@ -7,6 +7,7 @@ public class Tour {
     private double price;
     private String description;
     private int capacity;
+    private int guideId;
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -25,4 +26,7 @@ public class Tour {
 
     public int getCapacity() { return capacity; }
     public void setCapacity(int capacity) { this.capacity = capacity; }
+
+    public int getGuideId() { return guideId; }
+    public void setGuideId(int guideId) { this.guideId = guideId; }
 }
