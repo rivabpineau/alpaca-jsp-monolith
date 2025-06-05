@@ -17,7 +17,7 @@
       <forward name="success" path="/login.jsp"/>
       <forward name="failure" path="/register.jsp"/>
     </action>
-    <action path="/users" type="com.alpacatours.action.UserAction" name="userForm" scope="request">
+    <action path="/users" type="com.alpacatours.action.UserAction" name="userForm" scope="request" validate="false">
       <forward name="success" path="/users.jsp"/>
     </action>
     <action path="/tours" type="com.alpacatours.action.TourAction" name="tourForm" scope="request"/>
