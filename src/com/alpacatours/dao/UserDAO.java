@@ -47,4 +47,23 @@ public class UserDAO {
         }
         return null;
     }
+
+    public java.util.List<User> findAll() {
+        java.util.List<User> list = new java.util.ArrayList<>();
+        Connection conn = Database.getConnection();
+        try (Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery("SELECT id, username, password, role FROM users")) {
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getInt("id"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setRole(rs.getString("role"));
+                list.add(u);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
